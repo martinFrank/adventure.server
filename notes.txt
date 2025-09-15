@@ -1,0 +1,8 @@
+mvn clean install
+
+docker build -t elitegames/adventure-server .
+
+docker run -d -p 8080:8080 elitegames/adventure-server
+
+
+keytool -genkeypair -alias springboot -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore keystore.p12 -validity 3650
