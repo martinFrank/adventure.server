@@ -1,5 +1,6 @@
 package com.github.martinfrank.elitegames.adventureserver.server.security;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,11 +18,18 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Configuration
 @EnableMethodSecurity
 public class SecurityConfig {
+
+
+    @Value("${security.cors.allowedOrigins}")
+    private String allowedOrigins;
+
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationFilter jwtFilter) throws Exception {
@@ -40,18 +48,19 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of(
+//        configuration.setAllowedOrigins(List.of(
 //                "http://localhost:5173",
 //                "http://host.docker.internal:5173",
 //                "http://192.168.0.24:5173",
-                "http://localhost:3000",
+//                "http://localhost:3000",
 //                "http://host.docker.internal:3000",
 //                "http://192.168.0.24:3000",
 //                "http://localhost:80",
 //                "http://host.docker.internal:80",
 //                "http://192.168.0.24:80"
-                "http://frontend:3000"
-        )); //FIXME
+//                "http://frontend:3000"
+//        )); //FIXME
+        configuration.setAllowedOrigins(allowedOrigins());
 //        configuration.setAllowedOrigins(List.of("https://localhost:3000")); //FIXME
 //        configuration.setAllowedOrigins(List.of("*")); //FIXME
         configuration.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
@@ -77,5 +86,10 @@ public class SecurityConfig {
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration cfg) throws Exception {
         return cfg.getAuthenticationManager();
+    }
+
+
+    private List<String> allowedOrigins() {
+        return Arrays.stream(allowedOrigins.split(",")).map(String::trim).toList();
     }
 }

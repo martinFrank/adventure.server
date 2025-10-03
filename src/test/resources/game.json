@@ -1,0 +1,641 @@
+{
+  "plot": "the player visits a small village named ember brooke, where a ghost is haunting the people. the village elder\nasks the player to investigate the reason of trouble. the ghost of the old druid is angry, because his ring\nwas stolen from his grave. He will come to peace if the ring is returned and a soothing ritual is performed.\nbefore he will find peace he will attack the players in a final battle. The ring was stolen from the miner,\nbut ridden from regret he disposed the ring deep within the mines.\n",
+  "locations": [
+    {
+      "type": "MARKET_PLACE",
+      "id": "MARKET_PLACE",
+      "generation": "a small market place with very limited access to good. This is the village center. there is a small fountain in the center and tree surrounding it.",
+      "toLocationIds": [
+        "ELDER_HUT",
+        "VILLAGE_FIELDS",
+        "SMITHY",
+        "INN",
+        "APOTHECARY"
+      ]
+    },
+    {
+      "type": "SMITHY",
+      "id": "SMITHY",
+      "generation": "This is a small smithy. it provides solid tools and some surprisingly excellent weapons.",
+      "toLocationIds": [
+        "MARKET_PLACE"
+      ]
+    },
+    {
+      "type": "INN",
+      "id": "INN",
+      "generation": "The small inn serves good food and has four rooms to rent. Sometimes bards stop here and play music.",
+      "toLocationIds": [
+        "MARKET_PLACE"
+      ]
+    },
+    {
+      "type": "APOTHECARY",
+      "id": "APOTHECARY",
+      "generation": "this shop sells fine herbs and some minor magic artefacts.",
+      "toLocationIds": [
+        "MARKET_PLACE"
+      ]
+    },
+    {
+      "type": "ELDER_HUT",
+      "id": "ELDER_HUT",
+      "generation": "this is the small hut from the village elder. it also functions as town hall",
+      "toLocationIds": [
+        "MARKET_PLACE",
+        "LIBRARY"
+      ]
+    },
+    {
+      "type": "LIBRARY",
+      "id": "LIBRARY",
+      "generation": "this small library is part of the village elders hut. Usually it is closed, but opens on request",
+      "toLocationIds": [
+        "ELDER_HUT"
+      ]
+    },
+    {
+      "type": "FIELDS",
+      "id": "VILLAGE_FIELDS",
+      "generation": "behind the village start the fields from the citicens. A path leads towards them to the outback",
+      "toLocationIds": [
+        "CROSSROAD",
+        "MARKET_PLACE"
+      ]
+    },
+    {
+      "type": "MEADOW",
+      "id": "CROSSROAD",
+      "generation": "there is a junction here. Two Trees grow here. Sadly no signpost is here.",
+      "toLocationIds": [
+        "EDGE_OF_WOOD",
+        "HAMLET",
+        "VILLAGE_FIELDS",
+        "QUARRY"
+      ]
+    },
+    {
+      "type": "HAMLET",
+      "id": "HAMLET",
+      "generation": "there is a bigger farm, surrounded by crop fields and meadows full of flowers.",
+      "toLocationIds": [
+        "CROSSROAD"
+      ]
+    },
+    {
+      "type": "QUARRY",
+      "id": "QUARRY",
+      "generation": "the quarry provides building material for the village. there is a small hut, where the worker lives. Some carts and piles of bricks can be seen.",
+      "toLocationIds": [
+        "CROSSROAD"
+      ]
+    },
+    {
+      "type": "GROVE",
+      "id": "EDGE_OF_WOOD",
+      "generation": "the meadows slowly turn into a forest. it looks beautiful, and you provides cool-off on hot days. It smells like game and mushrooms",
+      "toLocationIds": [
+        "CROSSROAD",
+        "DEEP_FOREST"
+      ]
+    },
+    {
+      "type": "GROVE",
+      "id": "DEEP_FOREST",
+      "generation": "the forest is darker here and far more silent than expected. It so dark it makes you feel eerie. There are paths leading even deeper into the forest.",
+      "toLocationIds": [
+        "EDGE_OF_WOOD",
+        "WAY_TO_LAIR",
+        "WAY_TO_MINE",
+        "WAY_TO_GRAVE"
+      ]
+    },
+    {
+      "type": "FOREST",
+      "id": "WAY_TO_LAIR",
+      "generation": "this part of the forest is deep and the trees are full of cobwebs. it is surprising that the path is still passable.",
+      "toLocationIds": [
+        "DEEP_FOREST",
+        "LAIR"
+      ]
+    },
+    {
+      "type": "FOREST",
+      "id": "LAIR",
+      "generation": "the path leads into a lair full of spiders. These spiders are far bigger than anything you ever saw before. The forrest around this lair grants no other exit than that where you came from.",
+      "toLocationIds": [
+        "WAY_TO_LAIR"
+      ]
+    },
+    {
+      "type": "WOODS",
+      "id": "WAY_TO_GRAVE",
+      "generation": "this part of the forest is lighter. But it also makes you feel sad, for no reason.",
+      "toLocationIds": [
+        "DEEP_FOREST",
+        "GHOSTS_GRAVE"
+      ]
+    },
+    {
+      "type": "CLEARING",
+      "id": "GHOSTS_GRAVE",
+      "generation": "there is a clearing in the woods. in the clearing is a grave and a tombstone. this place gives you the chills.",
+      "toLocationIds": [
+        "DRUIDS_HUT",
+        "WAY_TO_GRAVE"
+      ]
+    },
+    {
+      "type": "CLEARING",
+      "id": "DRUIDS_HUT",
+      "generation": "the druids hut in the clearing has been abandoned long time ago and lies in ruins now",
+      "toLocationIds": [
+        "GHOSTS_GRAVE"
+      ]
+    },
+    {
+      "type": "FOREST",
+      "id": "WAY_TO_MINE",
+      "generation": "the forest smells fresh here, but the trees look a bit warped. there are many dead tress",
+      "toLocationIds": [
+        "MINE",
+        "DEEP_FOREST"
+      ]
+    },
+    {
+      "type": "DUNGEON",
+      "id": "MINE",
+      "generation": "this is an abandoned mine in the forest. there are still some carts here. inside is the air dry. it looks like this mine leads deep into the mountain.",
+      "toLocationIds": [
+        "WAY_TO_MINE",
+        "DEEP_MINE"
+      ]
+    },
+    {
+      "type": "DUNGEON",
+      "id": "DEEP_MINE",
+      "generation": "these part of the mines are older than the upper parts. it looks they have been build by ancient miners a very very long time ago. the upper mines must have breached into here. its hot here and you feel scary.",
+      "toLocationIds": [
+        "MINE"
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "type": "PERSON",
+      "id": "SMITH",
+      "description": "An exiled dwarf living now among humans. He doesn\u0027t like questions about his past. ",
+      "locationId": "SMITHY"
+    },
+    {
+      "type": "PERSON",
+      "id": "INN_KEEPER",
+      "description": "an old woman with a disabled leg. she also cooks and her meals and drinks taste very good. once she also met a king in the very south. she is witty and funny",
+      "locationId": "INN"
+    },
+    {
+      "type": "PERSON",
+      "id": "APOTHECARIST",
+      "description": "and elder man who seems to be more interested in nature than in people. know very much about herbs and also has some minor magic abilities.",
+      "locationId": "APOTHECARY"
+    },
+    {
+      "type": "PERSON",
+      "id": "VILLAGE_ELDER",
+      "description": "the village elder is a quite young man for an elder. he looks slightly troubles, since there are problems in the village. he is a bit corpulent and talks often of his family. he knows how to handle weapons and people",
+      "locationId": "ELDER_HUT"
+    },
+    {
+      "type": "PERSON",
+      "id": "LIBRARIAN",
+      "description": "this is a grand dad and works on volunteer base in the library. most time the library is closed, but he has very deep knowledge about history and farming.",
+      "locationId": "LIBRARY"
+    },
+    {
+      "type": "PERSON",
+      "id": "BARD",
+      "description": "a lively young elf woman with a recorder. she knows how to perform and she knows songs that have been long forgotten. her cloth are colorful, her body is fit",
+      "locationId": "INN"
+    },
+    {
+      "type": "PERSON",
+      "id": "FARMER",
+      "description": "he is the head of a small hamlet where he and his family lives. they produce most of the food for the village and even have a small mill running. he also brews beer.",
+      "locationId": "HAMLET"
+    },
+    {
+      "type": "PERSON",
+      "id": "MINER",
+      "description": "a strong young man working in the quarry. he does not talk much. he has a small collection of stones, some look like gems.",
+      "locationId": "QUARRY"
+    },
+    {
+      "type": "PERSON",
+      "id": "GHOST_PEACEFUL",
+      "description": "the peaceful version of the ghost of the druid. he can talk to uninvolved people. he is angry because his ring was stolen",
+      "locationId": "GHOSTS_GRAVE"
+    },
+    {
+      "type": "PERSON",
+      "id": "GHOST_MENACING",
+      "description": "the ghostly obsession takes over and make the once harmles druid ghost into a meanancing dire ghost with red eyes"
+    }
+  ],
+  "quests": [
+    {
+      "id": "QUEST_TALK_TO_VILLAGE_ELDER",
+      "prerequisiteQuestIds": [],
+      "taskIds": [
+        "TASK_TALK_TO_VILLAGE_ELDER_TO_START"
+      ],
+      "gameChangeIds": [],
+      "plot": "you have been asked to talk to the village elderly and help him",
+      "isCompleted": false
+    },
+    {
+      "id": "BRINGING_PEACE_TO_GHOST",
+      "prerequisiteQuestIds": [
+        "QUEST_TALK_TO_VILLAGE_ELDER"
+      ],
+      "taskIds": [],
+      "gameChangeIds": [],
+      "plot": "people and animals feel sick. nightmares and fear strikes the village. find the reason and remove it.",
+      "isCompleted": false
+    },
+    {
+      "id": "FIND_REASON",
+      "prerequisiteQuestIds": [],
+      "taskIds": [],
+      "gameChangeIds": [],
+      "plot": "find out what reason causes the terror",
+      "parentId": "BRINGING_PEACE_TO_GHOST",
+      "isCompleted": false
+    },
+    {
+      "id": "TALK_TO_VILLAGERS",
+      "prerequisiteQuestIds": [],
+      "taskIds": [
+        "TALK_TO_SMITH_ABOUT_GHOST",
+        "TALK_TO_INN_KEEPER_ABOUT_GHOST",
+        "TALK_TO_LIBRARIAN_ABOUT_GHOST",
+        "TALK_TO_APOTHECARIST_ABOUT_GHOST",
+        "TALK_TO_FARMER_ABOUT_GHOST"
+      ],
+      "gameChangeIds": [],
+      "plot": "ask around and find a clue",
+      "parentId": "FIND_REASON",
+      "isCompleted": false
+    },
+    {
+      "id": "INVESITGATE_THE_GHOST",
+      "prerequisiteQuestIds": [
+        "TALK_TO_VILLAGERS"
+      ],
+      "taskIds": [
+        "SEARCH_THE_GRAVE_TO_INVESTIGATE",
+        "TALK_TO_GHOST_TO_INVESTIGATE"
+      ],
+      "gameChangeIds": [],
+      "plot": "now its clear that there is a ghost - lets investigate the ghost in the forest",
+      "parentId": "FIND_REASON",
+      "isCompleted": false
+    },
+    {
+      "id": "LEARN_REMEDY",
+      "prerequisiteQuestIds": [
+        "INVESITGATE_THE_GHOST"
+      ],
+      "taskIds": [
+        "TALK_TO_LIBRARIAN_FOR_REMEDY"
+      ],
+      "gameChangeIds": [],
+      "plot": "you hope that the librarian knows how to settle a ghost",
+      "parentId": "FIND_REASON",
+      "isCompleted": false
+    },
+    {
+      "id": "REMOVE_EVIL",
+      "prerequisiteQuestIds": [
+        "FIND_REASON"
+      ],
+      "taskIds": [],
+      "gameChangeIds": [],
+      "plot": "find a way to set the ghost to rest",
+      "parentId": "BRINGING_PEACE_TO_GHOST",
+      "isCompleted": false
+    },
+    {
+      "id": "FIND_RING_STEALER",
+      "prerequisiteQuestIds": [],
+      "taskIds": [
+        "TALK_TO_SMITH_ABOUT_RING_STEALER",
+        "TALK_TO_INN_KEEPER_ABOUT_RING_STEALER",
+        "TALK_TO_APOTHECARIST_ABOUT_RING_STEALER",
+        "TALK_TO_MINER_ABOUT_RING_STEALER"
+      ],
+      "gameChangeIds": [],
+      "plot": "find out who stole the ring",
+      "parentId": "REMOVE_EVIL",
+      "isCompleted": false
+    },
+    {
+      "id": "FIND_RING",
+      "prerequisiteQuestIds": [
+        "FIND_RING_STEALER"
+      ],
+      "taskIds": [
+        "SEARCH_RING_IN_MINES"
+      ],
+      "gameChangeIds": [],
+      "plot": "find the ring that causes the ghost to roam",
+      "parentId": "FIND_REASON",
+      "isCompleted": false
+    },
+    {
+      "id": "FIND_FLOWERS",
+      "prerequisiteQuestIds": [],
+      "taskIds": [
+        "SEARCH_FLOWERS_ON_FIELD"
+      ],
+      "gameChangeIds": [],
+      "plot": "find flowers for the ritual",
+      "parentId": "REMOVE_EVIL",
+      "isCompleted": false
+    },
+    {
+      "id": "FIND_SONG_OF_SORROWS",
+      "prerequisiteQuestIds": [],
+      "taskIds": [
+        "FIND_SONG_OF_SORROW_IN_INN"
+      ],
+      "gameChangeIds": [],
+      "plot": "find song for the ritual",
+      "parentId": "REMOVE_EVIL",
+      "isCompleted": false
+    },
+    {
+      "id": "AWAKEN_GHOST",
+      "prerequisiteQuestIds": [
+        "FIND_SONG_OF_SORROWS",
+        "FIND_FLOWERS",
+        "FIND_RING"
+      ],
+      "taskIds": [
+        "DEPOSIT_FLOWERS_TO_AWAKEN_GHOST",
+        "DEPOSIT_RING_TO_AWAKEN_GHOST",
+        "SING_SONG_TO_AWAKEN_GHOST"
+      ],
+      "gameChangeIds": [
+        "REMOVE_PEACEFUL_GHOST",
+        "ADD_MENACING_GHOST"
+      ],
+      "plot": "perform the ritual",
+      "parentId": "REMOVE_EVIL",
+      "isCompleted": false
+    },
+    {
+      "id": "SETTLE_GHOST",
+      "prerequisiteQuestIds": [
+        "AWAKEN_GHOST"
+      ],
+      "taskIds": [
+        "FIGHT_MENACING_GHOST"
+      ],
+      "gameChangeIds": [],
+      "plot": "the possessed form of the ghost appeared and you have to destroy it",
+      "parentId": "REMOVE_EVIL",
+      "isCompleted": false
+    }
+  ],
+  "tasks": [
+    {
+      "actorId": "VILLAGE_ELDER",
+      "mystery": "the village is haunted and the actor wants you to solve it",
+      "type": "TALK_TO",
+      "id": "TASK_TALK_TO_VILLAGE_ELDER_TO_START",
+      "isOptional": false
+    },
+    {
+      "actorId": "SMITH",
+      "mystery": "knows nothing",
+      "type": "TALK_TO",
+      "id": "TALK_TO_SMITH_ABOUT_GHOST",
+      "isOptional": false
+    },
+    {
+      "actorId": "INN_KEEPER",
+      "mystery": "knows nothing",
+      "type": "TALK_TO",
+      "id": "TALK_TO_INN_KEEPER_ABOUT_GHOST",
+      "isOptional": false
+    },
+    {
+      "actorId": "LIBRARIAN",
+      "mystery": "knows nothing",
+      "type": "TALK_TO",
+      "id": "TALK_TO_LIBRARIAN_ABOUT_GHOST",
+      "isOptional": false
+    },
+    {
+      "actorId": "APOTHECARIST",
+      "mystery": "knows nothing",
+      "type": "TALK_TO",
+      "id": "TALK_TO_APOTHECARIST_ABOUT_GHOST",
+      "isOptional": false
+    },
+    {
+      "actorId": "FARMER",
+      "mystery": "saw the ghost in the forrest",
+      "type": "TALK_TO",
+      "id": "TALK_TO_FARMER_ABOUT_GHOST",
+      "isOptional": false
+    },
+    {
+      "locationId": "GHOSTS_GRAVE",
+      "desiredObject": "the peaceful ghost",
+      "type": "SEARCH_AT",
+      "id": "SEARCH_THE_GRAVE_TO_INVESTIGATE",
+      "isOptional": false
+    },
+    {
+      "actorId": "GHOST_PEACEFUL",
+      "mystery": "the ring has been stolen from the ghost and this makes the ghost unrest",
+      "type": "TALK_TO",
+      "id": "TALK_TO_GHOST_TO_INVESTIGATE",
+      "isOptional": false
+    },
+    {
+      "actorId": "LIBRARIAN",
+      "mystery": "to settle the ghost you need to return the ring, plant flowers, and sing the song of sorrows",
+      "type": "TALK_TO",
+      "id": "TALK_TO_LIBRARIAN_FOR_REMEDY",
+      "isOptional": false
+    },
+    {
+      "actorId": "SMITH",
+      "mystery": "the smith didn\u0027t take the ring",
+      "type": "TALK_TO",
+      "id": "TALK_TO_SMITH_ABOUT_RING_STEALER",
+      "isOptional": false
+    },
+    {
+      "actorId": "INN_KEEPER",
+      "mystery": "the inn keeper didn\u0027t take the ring",
+      "type": "TALK_TO",
+      "id": "TALK_TO_INN_KEEPER_ABOUT_RING_STEALER",
+      "isOptional": false
+    },
+    {
+      "actorId": "APOTHECARIST",
+      "mystery": "the apothecary didn\u0027t take the ring",
+      "type": "TALK_TO",
+      "id": "TALK_TO_APOTHECARIST_ABOUT_RING_STEALER",
+      "isOptional": false
+    },
+    {
+      "actorId": "MINER",
+      "mystery": "the miner took the ring, regretted sealing it and hid it into deep mines",
+      "type": "TALK_TO",
+      "id": "TALK_TO_MINER_ABOUT_RING_STEALER",
+      "isOptional": false
+    },
+    {
+      "locationId": "DEEP_MINE",
+      "desiredObject": "the gold ring with a red pearl from the unrest ghost",
+      "type": "SEARCH_AT",
+      "id": "SEARCH_RING_IN_MINES",
+      "isOptional": false
+    },
+    {
+      "locationId": "HAMLET",
+      "desiredObject": "the blue flowers",
+      "type": "SEARCH_AT",
+      "id": "SEARCH_FLOWERS_ON_FIELD",
+      "isOptional": false
+    },
+    {
+      "actorId": "BARD",
+      "mystery": "the ancient elfen song of sorrows",
+      "type": "TALK_TO",
+      "id": "FIND_SONG_OF_SORROW_IN_INN",
+      "isOptional": false
+    },
+    {
+      "locationId": "GHOSTS_GRAVE",
+      "applyAction": "you place the flowers on the grave",
+      "type": "APPLY",
+      "id": "DEPOSIT_FLOWERS_TO_AWAKEN_GHOST",
+      "isOptional": false
+    },
+    {
+      "locationId": "GHOSTS_GRAVE",
+      "applyAction": "you return the ring to the grave",
+      "type": "APPLY",
+      "id": "DEPOSIT_RING_TO_AWAKEN_GHOST",
+      "isOptional": false
+    },
+    {
+      "locationId": "GHOSTS_GRAVE",
+      "applyAction": "you sing the song of sorrows in front of the grave",
+      "type": "APPLY",
+      "id": "SING_SONG_TO_AWAKEN_GHOST",
+      "isOptional": false
+    },
+    {
+      "actorId": "GHOST_MENACING",
+      "locationId": "GHOSTS_GRAVE",
+      "result": "you destroyed the hostile ghost. this brings peace to the soul and the village is saved",
+      "type": "FIGHT",
+      "id": "FIGHT_MENACING_GHOST",
+      "isOptional": false
+    }
+  ],
+  "changes": [
+    {
+      "type": "MOVE_PERSON",
+      "id": "REMOVE_PEACEFUL_GHOST",
+      "objectId": "GHOST_PEACEFUL"
+    },
+    {
+      "type": "MOVE_PERSON",
+      "id": "ADD_MENACING_GHOST",
+      "objectId": "GHOST_MENACING",
+      "objectParameter": "GHOSTS_GRAVE"
+    }
+  ],
+  "skillActions": [
+    {
+      "LocationId": "MARKET_PLACE",
+      "actionId": "SEARCH_MARKET_3",
+      "skillName": "SEARCH",
+      "modifier": 3,
+      "success": {
+        "itemId": "TREASURE_OLD_COIN",
+        "type": "GAIN_ITEM"
+      },
+      "fail": {
+        "type": "NOTHING"
+      }
+    },
+    {
+      "LocationId": "MARKET_PLACE",
+      "actionId": "SEARCH_MARKET_0",
+      "skillName": "SEARCH",
+      "modifier": 0,
+      "success": {
+        "itemId": "TRASH_PEBBLE_HEART",
+        "type": "GAIN_ITEM"
+      },
+      "fail": {
+        "type": "NOTHING"
+      }
+    },
+    {
+      "actorId": "SMITH",
+      "keyword": "job",
+      "actionId": "TALK_SMITH_JOB",
+      "skillName": "TALK",
+      "modifier": 3,
+      "success": {
+        "actorId": "SMITH",
+        "information": "he used to also work in the dwarven city of Grambash",
+        "type": "GAIN_INFORMATION"
+      },
+      "fail": {
+        "actorId": "SMITH",
+        "information": "his work is by far the best in the region",
+        "type": "GAIN_INFORMATION"
+      }
+    },
+    {
+      "actorId": "SMITH",
+      "keyword": "exiled",
+      "actionId": "TALK_SMITH_EXILE",
+      "skillName": "TALK",
+      "modifier": 3,
+      "success": {
+        "actorId": "SMITH",
+        "information": "he was falsely accused but kept silent to protect his brother",
+        "type": "GAIN_INFORMATION"
+      },
+      "fail": {
+        "actorId": "SMITH",
+        "information": "he tells, that it was a long time ago",
+        "type": "GAIN_INFORMATION"
+      }
+    }
+  ],
+  "items": [
+    {
+      "value": 0.01,
+      "itemId": "TREASURE_OLD_COIN",
+      "type": "TREASURE",
+      "name": "an old coin"
+    },
+    {
+      "itemId": "TRASH_PEBBLE_HEART",
+      "type": "TRASH",
+      "name": "an small pebble shaped like a heart"
+    }
+  ]
+}
