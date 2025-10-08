@@ -90,6 +90,8 @@ public class SecurityConfig {
 
 
     private List<String> allowedOrigins() {
-        return Arrays.stream(allowedOrigins.split(",")).map(String::trim).toList();
+        String withDev = "http://localhost:5173,"+allowedOrigins;
+//        return Arrays.stream(allowedOrigins.split(",")).map(String::trim).toList();
+        return Arrays.stream(withDev.split(",")).map(String::trim).toList();
     }
 }
