@@ -22,14 +22,16 @@ import java.util.Map;
 public class PlayerController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PlayerController.class);
+    private GameService gameService;
+
+    public PlayerController(GameService gameService){
+        this.gameService = gameService;
+    }
 
     @GetMapping("/player")
     public Player getPlayer() {
-        LOGGER.debug("Generation random player");
-        Player player = PlayerGenerator.generatePlayer("testee", PlayerClass.BARD, PlayerRace.ELF);
-        
-        LOGGER.debug("Generated player with class: {} and race: {}", PlayerClass.BARD, PlayerRace.ELF);
-        
+        Player player = gameService.getGame().getPlayer();
+        LOGGER.debug("returning player with class: {} and race: {}", player.playerClass, player.playerRace);
         return player;
     }
 }
