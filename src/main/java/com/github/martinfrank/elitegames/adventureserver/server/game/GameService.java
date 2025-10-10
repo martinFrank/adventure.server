@@ -16,6 +16,7 @@ public class GameService {
 
     public GameService(){
         Player player = PlayerGenerator.generatePlayer("martin", PlayerClass.BARD, PlayerRace.ELF);
+        player.currentLocationId = "MARKET_PLACE";
         SimpleAdventureGenerator adventureGenerator = new SimpleAdventureGenerator();
         Adventure adventure = adventureGenerator.generate();
         game = new Game("gameId", adventure, player);
