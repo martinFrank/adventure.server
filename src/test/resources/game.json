@@ -264,7 +264,9 @@
     },
     {
       "id": "FIND_REASON",
-      "prerequisiteQuestIds": [],
+      "prerequisiteQuestIds": [
+        "QUEST_TALK_TO_VILLAGE_ELDER"
+      ],
       "taskIds": [],
       "gameChangeIds": [],
       "plot": "find out what reason causes the terror",
