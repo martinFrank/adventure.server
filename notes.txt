@@ -1,6 +1,7 @@
 mvn clean install
 
 docker build -t elitegames/adventure-server .
+docker build -t elitegames/adventure --no-cache .
 
 docker run -d -p 8080:8080 elitegames/adventure-server
 
