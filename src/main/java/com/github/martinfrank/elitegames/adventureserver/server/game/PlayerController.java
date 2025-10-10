@@ -29,9 +29,9 @@ public class PlayerController {
     }
 
     @GetMapping("/player")
-    public Player getPlayer() {
+    public PlayerDto getPlayer() {
         Player player = gameService.getGame().getPlayer();
         LOGGER.debug("returning player with class: {} and race: {}", player.playerClass, player.playerRace);
-        return player;
+        return PlayerDto.fromModel(player);
     }
 }
