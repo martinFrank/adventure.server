@@ -1,21 +1,18 @@
 package com.github.martinfrank.elitegames.adventureserver.server.game;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.martinfrank.games.llmquestgenerator.location.Location;
 import com.github.martinfrank.games.llmquestgenerator.player.Player;
-import com.github.martinfrank.games.llmquestgenerator.player.PlayerClass;
-import com.github.martinfrank.games.llmquestgenerator.player.PlayerGenerator;
-import com.github.martinfrank.games.llmquestgenerator.player.PlayerRace;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
-import java.util.Map;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/player")
@@ -33,5 +30,16 @@ public class PlayerController {
         Player player = gameService.getGame().getPlayer();
         LOGGER.debug("returning player with class: {} and race: {}", player.playerClass, player.playerRace);
         return PlayerDto.fromModel(player);
+    }
+
+    @PostMapping("/destination")
+    public PlayerDto moveToDestination(String destinationId) {
+        LOGGER.debug("try moving player to {}", destinationId);
+        List<Location> possibleDestinations = gameService.getGame().getDestinations();
+        boolean isValid = possibleDestinations.stream().anyMatch(l -> Objects.equals(l.id, destinationId));
+        if (isValid){
+            gameService.getGame().getPlayer().currentLocationId = destinationId;
+        }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find location");
     }
 }
