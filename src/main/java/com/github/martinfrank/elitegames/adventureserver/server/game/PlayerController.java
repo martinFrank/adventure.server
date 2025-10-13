@@ -5,10 +5,7 @@ import com.github.martinfrank.games.llmquestgenerator.player.Player;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -33,12 +30,14 @@ public class PlayerController {
     }
 
     @PostMapping("/destination")
-    public PlayerDto moveToDestination(String destinationId) {
-        LOGGER.debug("try moving player to {}", destinationId);
+    public PlayerDto moveToDestination(@RequestBody DestinationRequestDto destinationRequest) {
+        LOGGER.debug("try moving player to {}", destinationRequest.locationId());
+        //{"locationId":"ELDER_HUT"}
         List<Location> possibleDestinations = gameService.getGame().getDestinations();
-        boolean isValid = possibleDestinations.stream().anyMatch(l -> Objects.equals(l.id, destinationId));
+        boolean isValid = possibleDestinations.stream().anyMatch(l -> Objects.equals(l.id, destinationRequest.locationId()));
         if (isValid){
-            gameService.getGame().getPlayer().currentLocationId = destinationId;
+            gameService.getGame().getPlayer().currentLocationId = destinationRequest.locationId();
+            return PlayerDto.fromModel(gameService.getGame().getPlayer());
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find location");
     }

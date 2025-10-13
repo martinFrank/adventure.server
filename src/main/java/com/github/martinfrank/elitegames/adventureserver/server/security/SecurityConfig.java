@@ -27,8 +27,8 @@ import java.util.List;
 public class SecurityConfig {
 
 
-    @Value("${security.cors.allowedOrigins}")
-    private String allowedOrigins;
+//    @Value("${security.cors.allowedOrigins}")
+//    private String allowedOrigins;
 
 
     @Bean
@@ -92,7 +92,7 @@ public class SecurityConfig {
     private List<String> allowedOrigins() {
         String withDev =
                 "http://localhost:3000, http://192.168.0.24:3000, http://192.168.61.225:3000," +
-                "http://localhost:5173, http://192.168.0.24:5173, http://192.168.61.225:5173,"+allowedOrigins;
+                "http://localhost:5173, http://192.168.0.24:5173, http://192.168.61.225:5173";//+","+allowedOrigins;
 //        return Arrays.stream(allowedOrigins.split(",")).map(String::trim).toList();
         return Arrays.stream(withDev.split(",")).map(String::trim).toList();
     }
