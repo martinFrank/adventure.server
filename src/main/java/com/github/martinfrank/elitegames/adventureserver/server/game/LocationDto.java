@@ -14,4 +14,8 @@ public record LocationDto(String type, String id, String generation, List<String
                 location.generation,
                 new ArrayList<>(location.toLocationIds));
     }
+
+    public static List<LocationDto> fromModels(List<Location> destinations) {
+        return destinations.stream().map(LocationDto::fromModel).toList();
+    }
 }

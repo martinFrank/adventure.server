@@ -1,5 +1,6 @@
 package com.github.martinfrank.elitegames.adventureserver.server.game;
 
+import com.github.martinfrank.games.llmquestgenerator.action.SkillAction;
 import com.github.martinfrank.games.llmquestgenerator.actor.Actor;
 import com.github.martinfrank.games.llmquestgenerator.location.Location;
 import com.github.martinfrank.games.llmquestgenerator.quest.Quest;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -31,6 +33,12 @@ public class GameController {
         return LocationDto.fromModel(gameService.getGame().getCurrentLocation());
     }
 
+    @GetMapping("/current-destinations")
+    public List<LocationDto> getCurrentDestinations() {
+        LOGGER.debug("returning current destinations");
+        return LocationDto.fromModels(gameService.getGame().getDestinations());
+    }
+
     @GetMapping("/current-actors")
     public List<ActorDto> getCurrentLocationActors() {
         LOGGER.debug("returning current location actors");
@@ -45,5 +53,13 @@ public class GameController {
         List<Quest> quests = gameService.getGame().getCurrentQuests();
         LOGGER.debug("quests.size={}", quests.size());
         return QuestDto.fromModels(quests);
+    }
+
+    @GetMapping("/current-actions")
+    public List<SkillActionDto> getSkillActions() {
+        LOGGER.debug("returning actions");
+        List<SkillAction> result = new ArrayList<>(gameService.getGame().getActorActions());
+        result.addAll(gameService.getGame().getLocationActions());
+        return SkillActionDto.fromModels(result);
     }
 }
