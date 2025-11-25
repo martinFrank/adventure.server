@@ -72,6 +72,6 @@ public class SecurityConfig {
     }
 
     private List<String> allowedOrigins() {
-        return List.of("https://elitegames.v6.rocks/adventure-game");
+        return List.of("https://elitegames.v6.rocks");
     }
 }
