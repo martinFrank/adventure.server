@@ -1,17 +1,10 @@
-#FROM openjdk:25-jdk-slim
-#WORKDIR /app
-#COPY target/server-0.0.1-SNAPSHOT.jar /app
-#EXPOSE 8080
-#CMD ["java", "-jar", "server-0.0.1-SNAPSHOT.jar"]
-
-
-
 # --- Build Stage ---
-FROM maven:3.9.11-eclipse-temurin-25 AS build
+FROM amazoncorretto:25-alpine as build
 WORKDIR /app
 
 # Install git for cloning the dependency
-RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache git
+RUN apk add --no-cache maven
 
 # Clone and build the llmquestgenerator dependency
 RUN git clone https://github.com/martinFrank/llmquestgenerator.git /tmp/llmquestgenerator
@@ -30,7 +23,7 @@ COPY src ./src
 RUN mvn clean package
 
 # --- Runtime Stage ---
-FROM openjdk:25-jdk-slim
+FROM amazoncorretto:25-alpine
 WORKDIR /app
 
 # Kopiere das gebaute JAR aus dem Build-Container

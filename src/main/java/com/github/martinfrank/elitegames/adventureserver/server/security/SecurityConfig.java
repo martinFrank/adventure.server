@@ -48,21 +48,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-//        configuration.setAllowedOrigins(List.of(
-//                "http://localhost:5173",
-//                "http://host.docker.internal:5173",
-//                "http://192.168.0.24:5173",
-//                "http://localhost:3000",
-//                "http://host.docker.internal:3000",
-//                "http://192.168.0.24:3000",
-//                "http://localhost:80",
-//                "http://host.docker.internal:80",
-//                "http://192.168.0.24:80"
-//                "http://frontend:3000"
-//        )); //FIXME
         configuration.setAllowedOrigins(allowedOrigins());
-//        configuration.setAllowedOrigins(List.of("https://localhost:3000")); //FIXME
-//        configuration.setAllowedOrigins(List.of("*")); //FIXME
         configuration.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
@@ -90,10 +76,10 @@ public class SecurityConfig {
 
 
     private List<String> allowedOrigins() {
-        String withDev =
-                "http://localhost:3000, http://192.168.0.24:3000, http://192.168.61.225:3000," +
-                "http://localhost:5173, http://192.168.0.24:5173, http://192.168.61.225:5173";//+","+allowedOrigins;
-//        return Arrays.stream(allowedOrigins.split(",")).map(String::trim).toList();
-        return Arrays.stream(withDev.split(",")).map(String::trim).toList();
+        String allowed = """
+                https://elitegames.v6.rocks/adventure-game,
+                https://localhost:8080/adventure-game-api
+                """;
+        return Arrays.stream(allowed.split(",")).map(String::trim).toList();
     }
 }
