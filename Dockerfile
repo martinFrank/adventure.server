@@ -26,6 +26,14 @@ RUN mvn clean package
 FROM amazoncorretto:25-alpine
 WORKDIR /app
 
+# Build-Argumente empfangen
+ARG BACKEND_SUBPATH
+ARG CORS_CSV_LIST
+
+# Als Umgebungsvariablen setzen
+ENV BACKEND_SUBPATH=$BACKEND_SUBPATH
+ENV CORS_CSV_LIST=$CORS_CSV_LIST
+
 # Kopiere das gebaute JAR aus dem Build-Container
 COPY --from=build /app/target/*.jar app.jar
 
