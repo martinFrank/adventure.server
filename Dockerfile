@@ -6,6 +6,15 @@ WORKDIR /app
 RUN apk add --no-cache git
 RUN apk add --no-cache maven
 
+# Build-Argumente empfangen
+ARG BACKEND_SUBPATH
+ARG CORS_CSV_LIST
+
+# Als Umgebungsvariablen setzen
+ENV BACKEND_SUBPATH=$BACKEND_SUBPATH
+ENV CORS_CSV_LIST=$CORS_CSV_LIST
+
+
 # Clone and build the llmquestgenerator dependency
 RUN git clone https://github.com/martinFrank/llmquestgenerator.git /tmp/llmquestgenerator
 WORKDIR /tmp/llmquestgenerator
@@ -27,12 +36,12 @@ FROM amazoncorretto:25-alpine
 WORKDIR /app
 
 # Build-Argumente empfangen
-ARG BACKEND_SUBPATH
-ARG CORS_CSV_LIST
+#ARG BACKEND_SUBPATH
+#ARG CORS_CSV_LIST
 
 # Als Umgebungsvariablen setzen
-ENV BACKEND_SUBPATH=$BACKEND_SUBPATH
-ENV CORS_CSV_LIST=$CORS_CSV_LIST
+#ENV BACKEND_SUBPATH=$BACKEND_SUBPATH
+#ENV CORS_CSV_LIST=$CORS_CSV_LIST
 
 # Kopiere das gebaute JAR aus dem Build-Container
 COPY --from=build /app/target/*.jar app.jar
